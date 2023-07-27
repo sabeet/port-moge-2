@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 
 const App = () => {
-  setInterval(function () {
-    document.querySelector(".item-5").style.transform += "rotate(6deg)";
-  }, 1000);
+  // setInterval(function () {
+  //   document.querySelector(".item-5").style.transform += "rotate(6deg)";
+  // }, 1000);
 
   // setInterval(function(){
   //   document.querySelector('.item-5').style.color = "gray";
