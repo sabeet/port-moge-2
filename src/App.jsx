@@ -38,7 +38,7 @@ const App = () => {
         <span href="#">
           <a
             target="_blank"
-            href="src/assets/Sabeet_Chowdhury_Resume_July_2023_v2.pdf"
+            href="https://github.com/sabeet/resume/blob/main/Sabeet_Chowdhury_Resume_July_2023_v2.pdf"
           >
             Résumé
           </a>
