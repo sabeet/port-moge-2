@@ -23,8 +23,19 @@
   font-size: 8em;
 }
 
+.item-5-uppercase {
+  color: orange !important;
+  text-transform: uppercase !important;
+}
+
+.item-5-lowercase {
+  color: gray !important;
+  text-transform: lowercase !important;
+}
+
 .item-5 {
-  color: orange;
+  /* color: orange; */
+  background-color: #58585800;
 }
 
 .bottom {

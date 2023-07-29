@@ -1,14 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
-  // setInterval(function () {
-  //   document.querySelector(".item-5").style.transform += "rotate(6deg)";
-  // }, 1000);
+  const [rotation, setRotation] = useState(6);
+  const [isUppercase, setIsUppercase] = useState(true);
+  const [dynamicClassName, setDynamicClassName] = useState("item-5-uppercase");
+
+  useEffect(() => {
+    const handle = setInterval(() => {
+      const el = document.querySelector(".item-5");
+
+      // el.style.transform = `rotate(${rotation}deg)`;
+
+      // el.classList.toggle("item-5-uppercase");
+      // el.classList.toggle("item-5-lowercase");
+
+      console.log(el.classList);
+      if (el.classList.contains("item-5-uppercase")) {
+        setDynamicClassName("item-5-lowercase");
+      } else {
+        setDynamicClassName("item-5-uppercase");
+      }
+
+      // setRotation((prev) => prev + 6);
+    }, 1000);
+
+    return () => {
+      // *** Clear the interval on unmount
+      clearInterval(handle); // ***
+    };
+  }, []);
+
+  useEffect(() => {
+    const handle = setInterval(() => {
+      const el = document.querySelector(".item-5");
+
+      el.style.transform = `rotate(${rotation}deg)`;
+
+      setRotation((prev) => prev + 6);
+    }, 1000);
+
+    return () => {
+      // *** Clear the interval on unmount
+      clearInterval(handle); // ***
+    };
+  }, [rotation]);
 
   // setInterval(function(){
-  //   document.querySelector('.item-5').style.color = "gray";
-  //   document.querySelector('.item-5').style.textTransform = "uppercase";
   // }, 1000);
 
   // setInterval(function(){
@@ -24,15 +62,15 @@ const App = () => {
     <div className="parent">
       <div className="top"></div>
       <div className="grid-special">
-        <div className="item">S</div>
-        <div className="item">A</div>
-        <div className="item">B</div>
-        <div className="item">E</div>
-        <div className="item item-5">E</div>
-        <div className="item">T</div>
-        <div className="item">.</div>
-        <div className="item">m</div>
-        <div className="item">e</div>
+        <span className="item">S</span>
+        <span className="item">A</span>
+        <span className="item">B</span>
+        <span className="item">E</span>
+        <span className={dynamicClassName + " item item-5"}>E</span>
+        <span className="item">T</span>
+        <span className="item">.</span>
+        <span className="item">m</span>
+        <span className="item">e</span>
       </div>
       <div className="bottom">
         <span href="#">
